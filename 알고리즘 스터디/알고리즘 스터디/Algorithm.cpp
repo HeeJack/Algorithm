@@ -59,3 +59,27 @@ void B1932() {
 
 	printf("%d", output);
 }
+
+void B1912() {
+	int input = 0, result = 0;
+	vector<int> inArr;
+	vector<int> outArr;
+
+	cin >> input;
+
+	for (int i = 0; i < input; i++) {
+		int temp = 0;
+		cin >> temp;
+		inArr.push_back(temp);
+	}
+
+	outArr.push_back(inArr[0]);
+	for (int i = 1; i < input; i++) {
+		outArr.push_back(outArr[i - 1] + inArr[i] > inArr[i] ? outArr[i - 1] + inArr[i] : inArr[i]);
+		result = result > outArr[i] ? result : outArr[i];
+	}
+
+	result = result > outArr[0] ? result : outArr[0];
+
+	cout << result << endl;	
+}
